@@ -1,2 +1,2 @@
 # TradeHub
-A website for B2B market...
+TradeHub is a simple B2B marketplace web application designed to connect buyers and suppliers globally. It provides a frontend interface to browse product categories, view verified suppliers, and facilitate trade through RFQs (Requests for Quotes). The codebase includes HTML/PHP templates and CSS styling for a marketplace layout that could be expanded into a full platform.
