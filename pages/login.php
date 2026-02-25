@@ -1,3 +1,57 @@
+<<<<<<< HEAD
+<?php
+/**
+ * Login Page
+ * User authentication with email and password
+ */
+
+require_once '../db_connect.php';
+require_once '../auth.php';
+require_once '../check_session.php';
+
+// Redirect if already logged in
+if (isLoggedIn()) {
+    header('Location: ../index.php');
+    exit();
+}
+
+// Initialize error/success messages
+$error_message = '';
+$success_message = '';
+
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+    // Sanitize and get form data
+    $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
+    
+    // Login user
+    $result = loginUser($conn, $email, $password);
+    
+    if ($result['success']) {
+        // Set session for logged-in user
+        setUserSession($result['user']);
+        $success_message = $result['message'];
+        
+        // Redirect based on user role
+        $redirect_url = '../index.php'; // Default fallback
+        if ($result['user']['role'] === 'seller') {
+            $redirect_url = 'seller_dashboard.php';
+        } elseif ($result['user']['role'] === 'buyer') {
+            $redirect_url = 'buyer_dashboard.php';
+        }
+        
+        // Redirect to appropriate dashboard after 1.5 seconds
+        header('refresh:1.5;url=' . $redirect_url);
+    } else {
+        $error_message = $result['message'];
+    }
+}
+
+?>
+=======
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
 <!DOCTYPE html>
 <html lang="en">
 
@@ -162,16 +216,50 @@
         <div class="or-divider">or continue with email</div>
 
         <!-- Email Form -->
+<<<<<<< HEAD
+        <form method="POST" action="login.php" class="flex flex-col gap-4">
+          
+          <!-- Error/Success Messages -->
+          <?php if (!empty($error_message)): ?>
+            <div style="padding: 12px 16px; background-color: #FEE2E2; border: 1px solid #FECACA; border-radius: var(--radius); color: #991B1B; font-size: 14px;">
+              <?php echo htmlspecialchars($error_message); ?>
+            </div>
+          <?php endif; ?>
+          
+          <?php if (!empty($success_message)): ?>
+            <div style="padding: 12px 16px; background-color: #DCFCE7; border: 1px solid #BBF7D0; border-radius: var(--radius); color: #166534; font-size: 14px;">
+              <?php echo htmlspecialchars($success_message); ?>
+            </div>
+          <?php endif; ?>
+
+          <div class="form-group">
+            <label class="form-label">Business Email *</label>
+            <input type="email" name="email" class="form-control" placeholder="john@company.com" required 
+                   value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" />
+=======
         <div class="flex flex-col gap-4">
           <div class="form-group">
             <label class="form-label">Business Email *</label>
             <input type="email" class="form-control" placeholder="john@company.com" />
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
           </div>
           <div class="form-group">
             <div class="flex justify-between items-center mb-1">
               <label class="form-label" style="margin-bottom:0;">Password *</label>
               <a href="#" class="text-sm" style="color:var(--primary);">Forgot password?</a>
             </div>
+<<<<<<< HEAD
+            <input type="password" name="password" class="form-control" placeholder="Enter your password" required />
+          </div>
+
+          <div class="flex items-center gap-2">
+            <input type="checkbox" id="remember" name="remember" style="width:16px;height:16px;accent-color:var(--primary);" />
+            <label for="remember" class="text-sm text-muted" style="cursor:pointer;">Remember me for 30 days</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg w-full" style="font-size:15px;">Log In</button>
+        </form>
+=======
             <input type="password" class="form-control" placeholder="Enter your password" />
           </div>
 
@@ -182,6 +270,7 @@
 
           <button class="btn btn-primary btn-lg w-full" style="font-size:15px;">Log In</button>
         </div>
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
 
         <div class="text-center mt-6 text-sm text-muted">
           Don't have an account? <a href="signup.php" style="color:var(--primary);font-weight:500;">Sign up free</a>

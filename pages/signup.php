@@ -1,3 +1,49 @@
+<<<<<<< HEAD
+<?php
+
+/**
+ * Sign Up Page
+ * User registration with validation
+ */
+
+require_once '../db_connect.php';
+require_once '../auth.php';
+require_once '../check_session.php';
+
+// Redirect if already logged in
+if (isLoggedIn()) {
+  header('Location: ../index.php');
+  exit();
+}
+
+// Initialize error/success messages
+$error_message = '';
+$success_message = '';
+
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+  // Sanitize and get form data
+  $full_name = isset($_POST['full_name']) ? trim($_POST['full_name']) : '';
+  $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+  $password = isset($_POST['password']) ? $_POST['password'] : '';
+  $role = isset($_POST['role']) ? trim($_POST['role']) : '';
+
+  // Register user
+  $result = registerUser($conn, $full_name, $email, $password, $role);
+
+  if ($result['success']) {
+    $success_message = $result['message'];
+    // Redirect to login after 2 seconds
+    header('refresh:2;url=login.php');
+  } else {
+    $error_message = $result['message'];
+  }
+}
+
+?>
+=======
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
 <!DOCTYPE html>
 <html lang="en">
 
@@ -295,6 +341,28 @@
         <div class="or-divider">or sign up with email</div>
 
         <!-- Form Fields -->
+<<<<<<< HEAD
+        <form method="POST" action="signup.php" class="flex flex-col gap-4">
+
+          <!-- Error/Success Messages -->
+          <?php if (!empty($error_message)): ?>
+            <div style="padding: 12px 16px; background-color: #FEE2E2; border: 1px solid #FECACA; border-radius: var(--radius); color: #991B1B; font-size: 14px;">
+              <?php echo htmlspecialchars($error_message); ?>
+            </div>
+          <?php endif; ?>
+
+          <?php if (!empty($success_message)): ?>
+            <div style="padding: 12px 16px; background-color: #DCFCE7; border: 1px solid #BBF7D0; border-radius: var(--radius); color: #166534; font-size: 14px;">
+              <?php echo htmlspecialchars($success_message); ?>
+            </div>
+          <?php endif; ?>
+
+          <div class="grid-2" style="gap:12px;">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input type="text" name="full_name" class="form-control" placeholder="John Smith" required
+                value="<?php echo htmlspecialchars($_POST['full_name'] ?? ''); ?>" />
+=======
         <div class="flex flex-col gap-4">
           <div class="grid-2" style="gap:12px;">
             <div class="form-group">
@@ -304,30 +372,54 @@
             <div class="form-group">
               <label class="form-label">Last Name *</label>
               <input type="text" class="form-control" placeholder="Smith" />
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
             </div>
           </div>
           <div class="form-group">
             <label class="form-label">Business Email *</label>
+<<<<<<< HEAD
+            <input type="email" name="email" class="form-control" placeholder="john@company.com" required
+              value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password *</label>
+            <input type="password" name="password" class="form-control" placeholder="Min. 8 characters" required />
+            <small style="color: var(--text-muted); font-size: 12px; margin-top: 4px; display: block;">
+              At least 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character
+            </small>
+=======
             <input type="email" class="form-control" placeholder="john@company.com" />
           </div>
           <div class="form-group">
             <label class="form-label">Password *</label>
             <input type="password" class="form-control" placeholder="Min. 8 characters" />
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
           </div>
           <div class="form-group">
             <label class="form-label">I am joining as *</label>
             <div class="flex gap-3">
               <label
+<<<<<<< HEAD
+                style="flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;">
+                <input type="radio" name="role" value="buyer" checked style="accent-color:var(--primary);width:16px;height:16px;" />
+                <div>
+                  <div style="font-size:13px;font-weight:600;color:var(--dark);">Buyer</div>
+=======
                 style="flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--primary);border-radius:var(--radius);cursor:pointer;background:var(--primary-bg);">
                 <input type="radio" name="role" checked style="accent-color:var(--primary);width:16px;height:16px;" />
                 <div>
                   <div style="font-size:13px;font-weight:600;color:var(--primary);">Buyer</div>
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
                   <div style="font-size:12px;color:var(--text-muted);">Source products</div>
                 </div>
               </label>
               <label
                 style="flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;">
+<<<<<<< HEAD
+                <input type="radio" name="role" value="seller" style="accent-color:var(--primary);width:16px;height:16px;" />
+=======
                 <input type="radio" name="role" style="accent-color:var(--primary);width:16px;height:16px;" />
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
                 <div>
                   <div style="font-size:13px;font-weight:600;color:var(--dark);">Supplier</div>
                   <div style="font-size:12px;color:var(--text-muted);">Sell products</div>
@@ -337,15 +429,24 @@
           </div>
 
           <div class="flex items-center gap-2">
+<<<<<<< HEAD
+            <input type="checkbox" id="agree" name="agree" style="width:16px;height:16px;accent-color:var(--primary);" required />
+=======
             <input type="checkbox" id="agree" style="width:16px;height:16px;accent-color:var(--primary);" />
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
             <label for="agree" class="text-sm text-muted" style="cursor:pointer;">
               I agree to the <a href="#" style="color:var(--primary);">Terms of Service</a> and <a href="#"
                 style="color:var(--primary);">Privacy Policy</a>
             </label>
           </div>
 
+<<<<<<< HEAD
+          <button type="submit" class="btn btn-primary btn-lg w-full" style="font-size:15px;">Create Free Account →</button>
+        </form>
+=======
           <button class="btn btn-primary btn-lg w-full" style="font-size:15px;">Create Free Account →</button>
         </div>
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
 
         <div class="text-center mt-4 text-sm text-muted">
           Already have an account? <a href="login.php" style="color:var(--primary);font-weight:500;">Log in</a>

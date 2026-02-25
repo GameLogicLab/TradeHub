@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+<?php
+/**
+ * Request for Quotation (RFQ) Page
+ * Buyer-only access
+ */
+
+require_once '../check_session.php';
+require_once '../buyer_check.php';
+
+?>
+=======
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,8 +40,18 @@
       <a href="help.php">Help</a>
     </div>
     <div class="nav-actions">
+<<<<<<< HEAD
+      <?php if (isLoggedIn()): ?>
+        <a href="profile.php" class="btn btn-ghost btn-sm">Profile</a>
+        <a href="logout.php" class="btn btn-primary btn-sm">Logout</a>
+      <?php else: ?>
+        <a href="login.php" class="btn btn-ghost btn-sm">Log in</a>
+        <a href="signup.php" class="btn btn-primary btn-sm">Get Started</a>
+      <?php endif; ?>
+=======
       <a href="login.php" class="btn btn-ghost btn-sm">Log in</a>
       <a href="signup.php" class="btn btn-primary btn-sm">Get Started</a>
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
     </div>
   </nav>
 

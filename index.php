@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+<?php
+/**
+ * Home Page
+ * Main landing page with session-based navbar
+ */
+
+require_once 'check_session.php';
+
+?>
+=======
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,8 +39,18 @@
       <a href="pages/help.php">Help</a>
     </div>
     <div class="nav-actions">
+<<<<<<< HEAD
+      <?php if (isLoggedIn()): ?>
+        <a href="pages/profile.php" class="btn btn-ghost btn-sm">Profile</a>
+        <a href="pages/logout.php" class="btn btn-primary btn-sm">Logout</a>
+      <?php else: ?>
+        <a href="pages/login.php" class="btn btn-ghost btn-sm">Log in</a>
+        <a href="pages/signup.php" class="btn btn-primary btn-sm">Get Started</a>
+      <?php endif; ?>
+=======
       <a href="pages/login.php" class="btn btn-ghost btn-sm">Log in</a>
       <a href="pages/signup.php" class="btn btn-primary btn-sm">Get Started</a>
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
     </div>
   </nav>
 
