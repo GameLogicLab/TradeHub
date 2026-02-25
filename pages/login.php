@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 /**
  * Login Page
@@ -49,6 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
+=======
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
 <!DOCTYPE html>
 <html lang="en">
 
@@ -213,6 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="or-divider">or continue with email</div>
 
         <!-- Email Form -->
+<<<<<<< HEAD
         <form method="POST" action="login.php" class="flex flex-col gap-4">
           
           <!-- Error/Success Messages -->
@@ -232,12 +236,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label class="form-label">Business Email *</label>
             <input type="email" name="email" class="form-control" placeholder="john@company.com" required 
                    value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" />
+=======
+        <div class="flex flex-col gap-4">
+          <div class="form-group">
+            <label class="form-label">Business Email *</label>
+            <input type="email" class="form-control" placeholder="john@company.com" />
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
           </div>
           <div class="form-group">
             <div class="flex justify-between items-center mb-1">
               <label class="form-label" style="margin-bottom:0;">Password *</label>
               <a href="#" class="text-sm" style="color:var(--primary);">Forgot password?</a>
             </div>
+<<<<<<< HEAD
             <input type="password" name="password" class="form-control" placeholder="Enter your password" required />
           </div>
 
@@ -248,6 +259,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
           <button type="submit" class="btn btn-primary btn-lg w-full" style="font-size:15px;">Log In</button>
         </form>
+=======
+            <input type="password" class="form-control" placeholder="Enter your password" />
+          </div>
+
+          <div class="flex items-center gap-2">
+            <input type="checkbox" id="remember" style="width:16px;height:16px;accent-color:var(--primary);" />
+            <label for="remember" class="text-sm text-muted" style="cursor:pointer;">Remember me for 30 days</label>
+          </div>
+
+          <button class="btn btn-primary btn-lg w-full" style="font-size:15px;">Log In</button>
+        </div>
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
 
         <div class="text-center mt-6 text-sm text-muted">
           Don't have an account? <a href="signup.php" style="color:var(--primary);font-weight:500;">Sign up free</a>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 /**
@@ -41,6 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
+=======
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
 <!DOCTYPE html>
 <html lang="en">
 
@@ -338,6 +341,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="or-divider">or sign up with email</div>
 
         <!-- Form Fields -->
+<<<<<<< HEAD
         <form method="POST" action="signup.php" class="flex flex-col gap-4">
 
           <!-- Error/Success Messages -->
@@ -358,10 +362,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <label class="form-label">Full Name *</label>
               <input type="text" name="full_name" class="form-control" placeholder="John Smith" required
                 value="<?php echo htmlspecialchars($_POST['full_name'] ?? ''); ?>" />
+=======
+        <div class="flex flex-col gap-4">
+          <div class="grid-2" style="gap:12px;">
+            <div class="form-group">
+              <label class="form-label">First Name *</label>
+              <input type="text" class="form-control" placeholder="John" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name *</label>
+              <input type="text" class="form-control" placeholder="Smith" />
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
             </div>
           </div>
           <div class="form-group">
             <label class="form-label">Business Email *</label>
+<<<<<<< HEAD
             <input type="email" name="email" class="form-control" placeholder="john@company.com" required
               value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" />
           </div>
@@ -371,21 +387,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <small style="color: var(--text-muted); font-size: 12px; margin-top: 4px; display: block;">
               At least 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character
             </small>
+=======
+            <input type="email" class="form-control" placeholder="john@company.com" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password *</label>
+            <input type="password" class="form-control" placeholder="Min. 8 characters" />
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
           </div>
           <div class="form-group">
             <label class="form-label">I am joining as *</label>
             <div class="flex gap-3">
               <label
+<<<<<<< HEAD
                 style="flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;">
                 <input type="radio" name="role" value="buyer" checked style="accent-color:var(--primary);width:16px;height:16px;" />
                 <div>
                   <div style="font-size:13px;font-weight:600;color:var(--dark);">Buyer</div>
+=======
+                style="flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--primary);border-radius:var(--radius);cursor:pointer;background:var(--primary-bg);">
+                <input type="radio" name="role" checked style="accent-color:var(--primary);width:16px;height:16px;" />
+                <div>
+                  <div style="font-size:13px;font-weight:600;color:var(--primary);">Buyer</div>
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
                   <div style="font-size:12px;color:var(--text-muted);">Source products</div>
                 </div>
               </label>
               <label
                 style="flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;">
+<<<<<<< HEAD
                 <input type="radio" name="role" value="seller" style="accent-color:var(--primary);width:16px;height:16px;" />
+=======
+                <input type="radio" name="role" style="accent-color:var(--primary);width:16px;height:16px;" />
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
                 <div>
                   <div style="font-size:13px;font-weight:600;color:var(--dark);">Supplier</div>
                   <div style="font-size:12px;color:var(--text-muted);">Sell products</div>
@@ -395,15 +429,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </div>
 
           <div class="flex items-center gap-2">
+<<<<<<< HEAD
             <input type="checkbox" id="agree" name="agree" style="width:16px;height:16px;accent-color:var(--primary);" required />
+=======
+            <input type="checkbox" id="agree" style="width:16px;height:16px;accent-color:var(--primary);" />
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
             <label for="agree" class="text-sm text-muted" style="cursor:pointer;">
               I agree to the <a href="#" style="color:var(--primary);">Terms of Service</a> and <a href="#"
                 style="color:var(--primary);">Privacy Policy</a>
             </label>
           </div>
 
+<<<<<<< HEAD
           <button type="submit" class="btn btn-primary btn-lg w-full" style="font-size:15px;">Create Free Account →</button>
         </form>
+=======
+          <button class="btn btn-primary btn-lg w-full" style="font-size:15px;">Create Free Account →</button>
+        </div>
+>>>>>>> 359096a8c1106d1124399a4982747603a0cbf23f
 
         <div class="text-center mt-4 text-sm text-muted">
           Already have an account? <a href="login.php" style="color:var(--primary);font-weight:500;">Log in</a>
